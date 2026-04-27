@@ -16,7 +16,7 @@ const uid = () => `${Date.now()}-${Math.random().toString(36).slice(2,9)}`;
 export const handler = async (event) => {
   const { httpMethod, path, pathParameters, body: rawBody } = event;
   const body = rawBody ? JSON.parse(rawBody) : {};
-  console.log(`${httpMethod} ${path}`);
+  console.log(`[v2] ${httpMethod} ${path}`);
 
   if (httpMethod === 'POST' && path === '/users') {
     if (!body.name) return respond(400, { error: 'name is required' });
